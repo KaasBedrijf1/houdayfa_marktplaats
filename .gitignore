@@ -1,0 +1,5 @@
+.DS_Store
+Thumbs.db
+# optioneel: geüploade plaatjes niet in git
+# assets/uploads/*
+# !assets/uploads/.htaccess

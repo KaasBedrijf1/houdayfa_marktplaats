@@ -1,0 +1,1289 @@
+/* Market storefront — Marokko-groen / rode M in merk */
+:root {
+  --mm-accent: #006233;
+  --mm-accent-bright: #0d8f4a;
+  --mm-accent-soft: rgba(0, 98, 51, 0.12);
+  --mm-brand-red: #c1272d;
+  --mm-ink: #1a211c;
+  --mm-muted: #5c6560;
+  --mm-bg: #eef2ef;
+  --mm-surface: #ffffff;
+  --mm-border: #dfe6e1;
+  --mm-radius: 14px;
+  --mm-radius-sm: 10px;
+  --mm-shadow: 0 4px 20px rgba(26, 33, 28, 0.06);
+  --mm-shadow-hover: 0 16px 40px rgba(26, 33, 28, 0.1);
+  --mm-font: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+body.ogani-theme {
+  background-image: none !important;
+  background-color: var(--mm-bg) !important;
+  font-family: var(--mm-font) !important;
+  color: var(--mm-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.ogani-theme h1,
+body.ogani-theme h2,
+body.ogani-theme h3,
+body.ogani-theme h4,
+body.ogani-theme h5,
+body.ogani-theme h6 {
+  font-family: var(--mm-font);
+  letter-spacing: -0.02em;
+}
+
+/* ——— Header ——— */
+body.ogani-theme .header__top.mm-header-topstrip {
+  background: #064a30 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.ogani-theme .mm-header-topstrip__tagline {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* Ogani zet auth-links op display:block → stapel; geforceerd horizontaal */
+body.ogani-theme .mm-header-topstrip .mm-header-auth--inline {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2rem 0.9rem;
+  padding: 0.35rem 0 !important;
+  text-align: right;
+}
+
+body.ogani-theme .mm-header-topstrip .mm-header-auth--inline a {
+  display: inline !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600;
+  margin: 0 !important;
+  white-space: nowrap;
+}
+
+body.ogani-theme .mm-header-topstrip .mm-header-auth--inline a:hover {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+@media (max-width: 575px) {
+  body.ogani-theme .mm-header-topstrip .mm-header-auth--inline {
+    justify-content: flex-start;
+    padding-top: 0.25rem !important;
+  }
+
+  body.ogani-theme .mm-header-topstrip__left {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+body.ogani-theme .mm-header-main-wrap {
+  background: var(--mm-surface);
+  border-bottom: 1px solid var(--mm-border);
+}
+
+body.ogani-theme .header {
+  box-shadow: 0 4px 24px rgba(0, 61, 31, 0.08);
+}
+
+/* Hoofdbalk: logo | nav (uitlijning rechts) | acties — geen rommelige tweede rij */
+@media (min-width: 992px) {
+  body.ogani-theme .mm-header-main {
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+  }
+
+  body.ogani-theme .mm-header-brand {
+    flex: 0 0 auto;
+    padding-right: 1rem;
+  }
+
+  body.ogani-theme .mm-header-menu-wrap {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  body.ogani-theme .mm-header-menu.header__menu {
+    padding: 0.85rem 0 !important;
+  }
+
+  body.ogani-theme .mm-header-menu ul {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.35rem clamp(0.75rem, 2vw, 1.35rem);
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  body.ogani-theme .mm-header-menu ul li {
+    margin-right: 0 !important;
+    display: block !important;
+  }
+
+  body.ogani-theme .mm-header-actions {
+    flex: 0 0 auto;
+    padding-left: 0.75rem;
+  }
+}
+
+body.ogani-theme .header__menu ul li a {
+  font-weight: 600;
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--mm-ink) !important;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+/* Alleen header-nav: groen bij hover/active (niet elke ul op de pagina) */
+body.ogani-theme .header__menu ul li > a:hover,
+body.ogani-theme .header__menu ul li > a.active {
+  color: var(--mm-accent) !important;
+}
+
+body.ogani-theme .header__menu ul li:hover > a {
+  color: var(--mm-accent) !important;
+}
+
+/* “Meer” dropdown — rest van categorieën, geen losse tweede regel in de balk */
+body.ogani-theme .mm-header-menu .mm-nav-more {
+  position: relative;
+}
+
+body.ogani-theme .mm-header-menu .mm-nav-more__label {
+  font-weight: 600;
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+  letter-spacing: 0.02em;
+  color: var(--mm-ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 5px 0;
+  user-select: none;
+}
+
+body.ogani-theme .mm-header-menu .mm-nav-more__label.is-active,
+body.ogani-theme .mm-header-menu .mm-nav-more:hover .mm-nav-more__label,
+body.ogani-theme .mm-header-menu .mm-nav-more:focus-within .mm-nav-more__label {
+  color: var(--mm-accent) !important;
+}
+
+body.ogani-theme .mm-header-menu .mm-nav-more__dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.25rem;
+  min-width: 220px;
+  background: var(--mm-surface);
+  border: 1px solid var(--mm-border);
+  border-radius: var(--mm-radius-sm);
+  box-shadow: var(--mm-shadow-hover);
+  padding: 0.4rem 0;
+  z-index: 120;
+  list-style: none !important;
+  margin: 0 !important;
+}
+
+body.ogani-theme .mm-header-menu .mm-nav-more:hover .mm-nav-more__dropdown,
+body.ogani-theme .mm-header-menu .mm-nav-more:focus-within .mm-nav-more__dropdown {
+  display: block;
+}
+
+body.ogani-theme .mm-header-menu .mm-nav-more__dropdown li {
+  margin: 0 !important;
+  display: block !important;
+}
+
+body.ogani-theme .mm-header-menu .mm-nav-more__dropdown a {
+  display: block !important;
+  padding: 0.5rem 1.1rem !important;
+  white-space: nowrap;
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  text-transform: none !important;
+  color: var(--mm-ink) !important;
+}
+
+body.ogani-theme .mm-header-menu .mm-nav-more__dropdown a:hover,
+body.ogani-theme .mm-header-menu .mm-nav-more__dropdown a.active {
+  color: var(--mm-accent) !important;
+  background: var(--mm-accent-soft);
+}
+
+body.ogani-theme .header__logo {
+  padding: 0.65rem 0 0.85rem !important;
+}
+
+body.ogani-theme .header__cart ul li a {
+  background: var(--mm-accent-soft) !important;
+  color: var(--mm-accent) !important;
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.15s;
+}
+
+body.ogani-theme .header__cart ul li a:hover {
+  background: var(--mm-accent) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+@media (min-width: 992px) {
+  body.ogani-theme .mm-header-actions .header__cart.mm-header-quick {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.65rem 0 !important;
+  }
+
+  body.ogani-theme .mm-header-actions .header__cart ul {
+    margin-right: 0 !important;
+  }
+}
+
+body.ogani-theme .header__cart__price {
+  font-size: 0.8rem !important;
+  font-weight: 700;
+  color: var(--mm-muted) !important;
+  text-transform: none;
+}
+
+body.ogani-theme .header__logo img {
+  max-height: 46px;
+  width: auto;
+}
+
+/* ——— Inline merklogo (ster + Market) — geen externe SVG-img ——— */
+.mm-brand-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  text-decoration: none !important;
+  color: inherit;
+  vertical-align: top;
+}
+
+.mm-brand-logo__row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.mm-brand-logo__mark {
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.mm-brand-logo__mark svg {
+  display: block;
+  width: 34px;
+  height: auto;
+}
+
+.mm-brand-logo__type {
+  display: block;
+  font-family: var(--mm-font);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mm-brand-logo__letter {
+  color: var(--mm-brand-red) !important;
+}
+
+.mm-brand-logo__rest {
+  color: var(--mm-ink);
+}
+
+.mm-brand-logo__rule {
+  display: block;
+  height: 3px;
+  width: 100%;
+  align-self: stretch;
+  background: #006233;
+  border-radius: 2px;
+}
+
+.mm-brand-logo--compact .mm-brand-logo__type {
+  font-size: 1.12rem;
+}
+
+.mm-brand-logo--compact .mm-brand-logo__mark svg {
+  width: 28px;
+}
+
+body.ogani-theme .humberger__menu__logo .mm-brand-logo {
+  padding: 0.35rem 0;
+}
+
+body.ogani-theme .footer .mm-brand-logo__type,
+body.ogani-theme .footer .mm-brand-logo__rest {
+  color: #fff !important;
+}
+
+body.ogani-theme .footer .mm-brand-logo__letter {
+  color: #ff8a8a !important;
+}
+
+body.ogani-theme .footer .mm-brand-logo__rule {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.mm-brand-logo--footer .mm-brand-logo__type {
+  font-size: 1.35rem;
+}
+
+/* ——— Hero ——— */
+body.ogani-theme .mm-hero-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 2rem;
+  background: linear-gradient(180deg, #f8faf9 0%, var(--mm-bg) 100%);
+  border-bottom: 1px solid var(--mm-border);
+}
+
+body.ogani-theme .hero__categories {
+  border-radius: var(--mm-radius);
+  overflow: hidden;
+  box-shadow: var(--mm-shadow);
+  border: 1px solid var(--mm-border);
+}
+
+body.ogani-theme .hero__categories__all {
+  background: linear-gradient(180deg, var(--mm-accent-bright) 0%, var(--mm-accent) 100%) !important;
+}
+
+body.ogani-theme .hero__categories ul {
+  background: var(--mm-surface);
+  border: none;
+}
+
+body.ogani-theme .hero__categories ul li a {
+  font-weight: 500;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  margin: 2px 8px;
+  transition: background 0.12s, color 0.12s;
+}
+
+body.ogani-theme .hero__categories ul li a:hover {
+  background: var(--mm-accent-soft);
+  color: var(--mm-accent) !important;
+}
+
+body.ogani-theme .hero__search {
+  margin-bottom: 0 !important;
+}
+
+body.ogani-theme .hero__search__form {
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  height: auto !important;
+  min-height: 50px;
+  border-radius: var(--mm-radius) !important;
+  border: 1px solid var(--mm-border) !important;
+  box-shadow: var(--mm-shadow) !important;
+  overflow: hidden;
+  background: var(--mm-surface) !important;
+}
+
+body.ogani-theme .hero__search__form form .hero__search__categories {
+  background: #f4f7f5 !important;
+  color: var(--mm-muted) !important;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+body.ogani-theme .hero__search__form input[type="text"] {
+  font-size: 1rem !important;
+}
+
+body.ogani-theme .hero__search__form .site-btn {
+  background: linear-gradient(180deg, var(--mm-accent-bright) 0%, var(--mm-accent) 100%) !important;
+  letter-spacing: 0.06em;
+  font-weight: 800 !important;
+  border: none !important;
+  padding-left: 1.75rem !important;
+  padding-right: 1.75rem !important;
+}
+
+/* ——— Main ——— */
+.mm-ogani-main {
+  min-height: 45vh;
+  outline: none;
+  padding-top: 1.5rem;
+}
+
+/* Geen hoge hero op login/plaats/etc.: minder scroll */
+body.ogani-theme.mm-hero-layout-compact .mm-ogani-main,
+body.ogani-theme.mm-hero-layout-none .mm-ogani-main {
+  padding-top: 0.5rem;
+}
+
+body.ogani-theme.mm-hero-layout-compact:not(.is-home) section.product.spad,
+body.ogani-theme.mm-hero-layout-none:not(.is-home) section.product.spad {
+  padding-top: 1.25rem !important;
+}
+
+/* Dunne zoekbalk (alleen niet-home, niet-admin) */
+section.mm-compact-search {
+  margin-bottom: 0;
+  padding: 0.65rem 0;
+  background: linear-gradient(180deg, #f8faf9 0%, var(--mm-bg) 100%);
+  border-bottom: 1px solid var(--mm-border);
+}
+
+.mm-compact-search__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mm-compact-search__form {
+  display: flex;
+  flex: 1;
+  min-width: 200px;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.mm-compact-search__input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--mm-border);
+  border-radius: var(--mm-radius);
+  padding: 0.45rem 0.85rem;
+  font-size: 1rem;
+  background: var(--mm-surface);
+}
+
+.mm-compact-search__btn.site-btn {
+  padding: 0.45rem 1.25rem !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.04em !important;
+  white-space: nowrap;
+}
+
+.mm-compact-search__tohome {
+  font-weight: 600;
+  color: var(--mm-accent);
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.mm-compact-search__tohome:hover {
+  color: var(--mm-accent-bright);
+  text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  .mm-compact-search__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mm-compact-search__tohome {
+    text-align: center;
+  }
+}
+
+body.ogani-theme section.product.spad {
+  padding-top: 2.25rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* ——— Sidebar ——— */
+body.ogani-theme .sidebar__item {
+  background: var(--mm-surface);
+  border: 1px solid var(--mm-border);
+  border-radius: var(--mm-radius);
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--mm-shadow);
+}
+
+body.ogani-theme .sidebar__item h4 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  color: var(--mm-accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid var(--mm-accent-soft);
+}
+
+body.ogani-theme .sidebar__item ul li {
+  margin-bottom: 0.35rem;
+}
+
+body.ogani-theme .sidebar__item ul li a {
+  color: var(--mm-ink);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: 8px;
+  padding: 0.25rem 0;
+  transition: color 0.12s;
+}
+
+body.ogani-theme .sidebar__item ul li a:hover {
+  color: var(--mm-accent);
+}
+
+body.ogani-theme .sidebar__item .form-control {
+  border-radius: var(--mm-radius-sm);
+  border-color: var(--mm-border);
+}
+
+body.ogani-theme .sidebar__item .site-btn {
+  border-radius: var(--mm-radius-sm) !important;
+  background: linear-gradient(180deg, var(--mm-accent-bright) 0%, var(--mm-accent) 100%) !important;
+  font-weight: 800 !important;
+}
+
+/* ——— Intro banner (homepage) ——— */
+.mm-hero-banner {
+  background: linear-gradient(125deg, #003d1f 0%, #006233 42%, #0d8f4a 100%) !important;
+  color: #fff !important;
+  border-radius: var(--mm-radius);
+  padding: 1.75rem 2rem !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 12px 40px rgba(0, 98, 51, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mm-hero-banner h3 {
+  color: #fff !important;
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.mm-hero-banner h3 .mm-hero-title-m {
+  color: #ff7b7b !important;
+}
+
+.mm-hero-banner p {
+  color: rgba(255, 255, 255, 0.88) !important;
+  margin-bottom: 1rem !important;
+  max-width: 42rem;
+  line-height: 1.55;
+}
+
+.mm-hero-banner .site-btn {
+  background: #fff !important;
+  color: var(--mm-accent) !important;
+  font-weight: 800 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 0.65rem 1.5rem !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.mm-hero-banner .site-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  color: #003d1f !important;
+}
+
+/* ——— Section titles ——— */
+body.ogani-theme .section-title h2 {
+  font-weight: 800;
+  color: var(--mm-ink);
+  font-size: 1.35rem;
+}
+
+body.ogani-theme .product__discount__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem !important;
+}
+
+body.ogani-theme .product__discount__title a {
+  font-weight: 700 !important;
+  color: var(--mm-accent) !important;
+  text-decoration: none;
+}
+
+body.ogani-theme .product__discount__title a:hover {
+  text-decoration: underline;
+}
+
+/* ——— Product cards ——— */
+.mm-listing-card {
+  margin-bottom: 1.5rem;
+}
+
+body.ogani-theme .mm-listing-card .product__discount__item {
+  background: var(--mm-surface);
+  border-radius: var(--mm-radius);
+  overflow: hidden;
+  border: 1px solid var(--mm-border);
+  box-shadow: var(--mm-shadow);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.2s;
+  height: 100%;
+}
+
+body.ogani-theme .mm-listing-card .product__discount__item:hover {
+  box-shadow: var(--mm-shadow-hover);
+  transform: translateY(-4px);
+  border-color: rgba(0, 98, 51, 0.22);
+}
+
+.product__discount__item__pic.mm-pic {
+  height: 232px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #e8ece9 0%, #dde4df 100%);
+  position: relative;
+}
+
+.product__discount__item__pic.mm-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+body.ogani-theme .mm-listing-card .product__discount__item:hover .mm-pic img {
+  transform: scale(1.05);
+}
+
+.mm-no-photo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--mm-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.mm-no-photo .fa {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.35;
+}
+
+body.ogani-theme .product__item__pic__hover {
+  top: 12px;
+  right: 12px;
+}
+
+body.ogani-theme .product__item__pic__hover li a {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: var(--mm-accent) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+body.ogani-theme .product__item__pic__hover li a:hover {
+  background: var(--mm-accent) !important;
+  color: #fff !important;
+  transform: scale(1.08);
+}
+
+body.ogani-theme .product__discount__item__text {
+  padding: 1.1rem 1.15rem 1.25rem !important;
+  text-align: left !important;
+}
+
+body.ogani-theme .mm-card-cat {
+  display: inline-block;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mm-accent) !important;
+  background: var(--mm-accent-soft);
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+body.ogani-theme .product__discount__item__text h5 {
+  margin: 0 0 0.5rem !important;
+  line-height: 1.35 !important;
+  min-height: 2.7em;
+}
+
+body.ogani-theme .product__discount__item__text h5 a {
+  color: var(--mm-ink) !important;
+  font-weight: 700 !important;
+  font-size: 0.98rem !important;
+  text-decoration: none !important;
+  transition: color 0.15s;
+}
+
+body.ogani-theme .product__discount__item__text h5 a:hover {
+  color: var(--mm-accent) !important;
+}
+
+body.ogani-theme .product__item__price {
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+  color: var(--mm-accent) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+body.ogani-theme .product__item__price span {
+  display: none;
+}
+
+body.ogani-theme .mm-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+body.ogani-theme .mm-card-city {
+  font-size: 0.78rem;
+  color: var(--mm-muted);
+  font-weight: 600;
+}
+
+body.ogani-theme .mm-card-city i {
+  margin-right: 0.25rem;
+  opacity: 0.85;
+}
+
+body.ogani-theme .mm-card-age {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--mm-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+body.ogani-theme .mm-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--mm-border);
+  margin-top: 0.15rem;
+}
+
+body.ogani-theme .mm-card-cta {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--mm-accent) !important;
+  text-decoration: none !important;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  border: 2px solid var(--mm-accent);
+  transition: background 0.15s, color 0.15s;
+}
+
+body.ogani-theme .mm-card-cta:hover {
+  background: var(--mm-accent);
+  color: #fff !important;
+}
+
+body.ogani-theme .mm-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.35);
+}
+
+body.ogani-theme .mm-card-article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body.ogani-theme .mm-card-article .product__discount__item__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+body.ogani-theme .mm-card-article .mm-card-footer {
+  margin-top: auto;
+}
+
+/* ——— Owl carousel ——— */
+body.ogani-theme .owl-nav button.owl-prev,
+body.ogani-theme .owl-nav button.owl-next {
+  background: var(--mm-surface) !important;
+  color: var(--mm-accent) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--mm-shadow) !important;
+  border: 1px solid var(--mm-border) !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body.ogani-theme .mm-owl-nav-inner {
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 700;
+  position: relative;
+  top: -2px;
+}
+
+body.ogani-theme .product__discount__slider .owl-nav {
+  text-align: center;
+  margin-top: 0.35rem;
+}
+
+body.ogani-theme .owl-dots .owl-dot.active span {
+  background: var(--mm-accent) !important;
+}
+
+/* ——— Footer ——— */
+body.ogani-theme .footer {
+  background: linear-gradient(180deg, #003d1f 0%, #001f10 100%) !important;
+  border-top: 3px solid var(--mm-accent-bright);
+}
+
+body.ogani-theme .footer__widget h6 {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+body.ogani-theme .footer__widget ul li a,
+body.ogani-theme .footer__about ul li {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+body.ogani-theme .footer__widget ul li a:hover {
+  color: #fff !important;
+}
+
+body.ogani-theme .footer__widget form input {
+  border-radius: 10px 0 0 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+
+body.ogani-theme .footer__widget form .site-btn {
+  border-radius: 0 10px 10px 0 !important;
+}
+
+/* ——— Slicknav (mobile) ——— */
+body.ogani-theme .slicknav_btn {
+  background: var(--mm-accent) !important;
+  border-radius: 10px !important;
+}
+
+body.ogani-theme .slicknav_nav a:hover {
+  background: var(--mm-accent-soft) !important;
+  color: var(--mm-accent) !important;
+}
+
+/* ——— Hamburger drawer ——— */
+body.ogani-theme .humberger__menu__wrapper {
+  background: var(--mm-surface) !important;
+}
+
+body.ogani-theme .humberger__menu__nav ul li a:hover {
+  color: var(--mm-accent) !important;
+}
+
+/* ——— Skip link ——— */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0.75rem;
+  z-index: 99999;
+  padding: 0.6rem 1.1rem;
+  background: var(--mm-accent);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: var(--mm-shadow-hover);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ——— Empty / results ——— */
+.mm-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--mm-surface);
+  border: 2px dashed var(--mm-border);
+  border-radius: var(--mm-radius);
+  color: var(--mm-muted);
+}
+
+.mm-empty-state a {
+  color: var(--mm-accent);
+  font-weight: 700;
+}
+
+/* ——— Divider ——— */
+body.ogani-theme hr {
+  border-color: var(--mm-border);
+  opacity: 1;
+}
+
+/* ——— City section headers ——— */
+.mm-city-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.mm-city-head h4 {
+  font-weight: 800;
+  color: var(--mm-ink);
+  margin: 0;
+}
+
+.mm-city-head a {
+  font-weight: 700;
+  color: var(--mm-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.mm-city-head a:hover {
+  text-decoration: underline;
+}
+
+/* ——— Storefront: trust strip & categorie-chips ——— */
+.mm-trust-strip {
+  margin-bottom: 1.25rem;
+}
+
+.mm-trust-strip__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.mm-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--mm-surface);
+  border: 1px solid var(--mm-border);
+  border-radius: var(--mm-radius-sm);
+  box-shadow: var(--mm-shadow);
+}
+
+.mm-trust-item > i {
+  font-size: 1.25rem;
+  color: var(--mm-accent);
+  margin-top: 0.15rem;
+}
+
+.mm-trust-item strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--mm-ink);
+  font-weight: 800;
+}
+
+.mm-trust-item small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--mm-muted);
+  margin-top: 0.15rem;
+  line-height: 1.35;
+}
+
+.mm-cat-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.35rem;
+}
+
+.mm-cat-chips-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mm-muted);
+  margin-right: 0.25rem;
+}
+
+a.mm-cat-chip {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--mm-ink) !important;
+  background: var(--mm-surface);
+  border: 1px solid var(--mm-border);
+  border-radius: 999px;
+  text-decoration: none !important;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+a.mm-cat-chip:hover {
+  border-color: var(--mm-accent);
+  background: var(--mm-accent-soft);
+  color: var(--mm-accent) !important;
+}
+
+/* ——— Hero banner (store variant) ——— */
+.mm-hero-banner--store {
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem 2.25rem !important;
+}
+
+@media (min-width: 992px) {
+  .mm-hero-banner--store {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+.mm-hero-banner--store .mm-hero-banner__copy h3 {
+  font-size: 1.5rem !important;
+  line-height: 1.25;
+}
+
+.mm-hero-banner--store .mm-hero-lead {
+  font-size: 1rem !important;
+  line-height: 1.6;
+}
+
+.mm-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.mm-hero-actions .site-btn {
+  margin: 0 !important;
+}
+
+a.mm-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: #fff !important;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+  text-decoration: none !important;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+a.mm-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+.mm-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: flex-end;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 992px) {
+  .mm-hero-stats {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.mm-hero-stat {
+  text-align: left;
+}
+
+.mm-hero-stat__n {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff !important;
+}
+
+.mm-hero-stat__l {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.75) !important;
+  margin-top: 0.35rem;
+}
+
+/* Anker #aanbod: niet onder de header verdwijnen */
+#aanbod {
+  scroll-margin-top: 5.5rem;
+}
+
+/* ——— Sectie “Nieuw binnen” + grid ——— */
+.mm-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.mm-section-head h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--mm-ink);
+}
+
+.mm-section-sub {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--mm-muted);
+}
+
+a.mm-text-link {
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: var(--mm-accent) !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+a.mm-text-link:hover {
+  text-decoration: underline !important;
+}
+
+.mm-product-grid {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.mm-product-grid > [class*="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* ——— Zoekresultaten toolbar ——— */
+.mm-results-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--mm-surface);
+  border: 1px solid var(--mm-border);
+  border-radius: var(--mm-radius);
+  box-shadow: var(--mm-shadow);
+  margin-bottom: 1.5rem;
+}
+
+.mm-results-count {
+  font-size: 0.95rem;
+  color: var(--mm-ink);
+}
+
+.mm-results-count strong {
+  font-weight: 800;
+  color: var(--mm-accent);
+}
+
+/* ——— Owl: ruimte tussen kaarten ——— */
+body.ogani-theme .product__discount__slider .mm-listing-card {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+body.ogani-theme .product__discount__slider.owl-carousel .owl-stage-outer {
+  padding-bottom: 0.5rem;
+}
+
+/* ——— Empty state ——— */
+.mm-empty-state {
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mm-empty-state__icon {
+  font-size: 2.5rem;
+  color: var(--mm-accent);
+  opacity: 0.5;
+  margin-bottom: 0.75rem;
+}
+
+.mm-empty-state p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.mm-empty-state--wide {
+  max-width: none;
+}

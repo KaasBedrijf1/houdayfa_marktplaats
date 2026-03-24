@@ -1,0 +1,11 @@
+# Render: New → Blueprint → kies deze repo (branch main)
+# MySQL: zet DB_* in het Render-dashboard (zie DEPLOY.md) — zonder DB start PHP wel, pagina's met DB crashen.
+services:
+  - type: web
+    name: marktplaats-demo
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: frankfurt
+    healthCheckPath: /

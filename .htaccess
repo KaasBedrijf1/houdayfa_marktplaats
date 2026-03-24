@@ -1,0 +1,4 @@
+# Optioneel: correct MIME-type voor SVG (als logo ooit weer als .svg wordt geladen)
+<IfModule mod_mime.c>
+    AddType image/svg+xml .svg
+</IfModule>
